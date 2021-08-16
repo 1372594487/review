@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <button id="btn">点击</button>
     <script src="./BinaryTree.js">
     </script>
     <script>
@@ -30,6 +31,16 @@
         binaryTree.qianxu(qianxuCallback)
         console.log(`qianxuArr => ${qianxuArr}`);
         console.log(`qianxuII =>${binaryTree.qianxuII()}`);
+    </script>
+    <script>
+        let btn = document.getElementById('btn')
+        console.log(btn);
+        btn.addEventListener('click',abc)
+        function abc(){
+            return function def(){
+                console.log(666);
+            }
+        }
     </script>
 </body>
 
