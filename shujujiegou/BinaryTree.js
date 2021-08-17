@@ -83,6 +83,17 @@ function BinaryTree() {
         return ret;
     }
 
+    const maxDepth = function (node) {
+        if (!node) {
+            return 0
+        } else {
+            const left = maxDepth(node.left)
+            const right = maxDepth(node.right)
+            return Math.max(left, right) + 1
+        }
+
+    }
+
     this.zhongxu = function (callback) {
         zhongxuNode(root, callback)
     }
@@ -99,9 +110,13 @@ function BinaryTree() {
         houxuNode(root, houxuArr)
         return houxuArr
     }
-    
-    this.chengxuNode = function(){
+
+    this.chengxu = function () {
         chengxuNode(root)
+    }
+
+    this.maxDepth = function () {
+        return maxDepth(root)
     }
 
 
