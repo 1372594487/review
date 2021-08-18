@@ -94,6 +94,43 @@ function BinaryTree() {
 
     }
 
+    const maxDepthII = function (node) {
+        if (!node) {
+            return 0
+        }
+        let count = 0
+        const q = []
+        q.push(node)
+        while (q.length !== 0) {
+            const size = q.length
+            for (let i = 1; i <= size; i++) {
+                const node = q.shift()
+                if (node.left) q.push(node.left)
+                if (node.right) q.push(node.right)
+            }
+            count++
+        }
+        return count
+    }
+
+    const minNode = function (node) {
+        if (node) {
+            while (node && node.left !== null) {
+                node = node.left
+            }
+            return node.key
+        }
+    }
+    const maxNode = function (node) {
+        if (node) {
+            while (node && node.right !== null) {
+                node = node.right
+            }
+        }
+        return node.key
+    }
+
+
     this.zhongxu = function (callback) {
         zhongxuNode(root, callback)
     }
@@ -117,6 +154,18 @@ function BinaryTree() {
 
     this.maxDepth = function () {
         return maxDepth(root)
+    }
+
+    this.maxDepthII = function () {
+        return maxDepthII(root)
+    }
+
+    this.min = function () {
+        return minNode(root)
+    }
+    this.max = function () {
+        return maxNode(root)
+
     }
 
 
