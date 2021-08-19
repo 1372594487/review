@@ -130,6 +130,91 @@ function BinaryTree() {
         return node.key
     }
 
+    const isSymmetric = function (node) {
+        if (!node) {
+            return false
+        }
+        const symmetricTree = function (left, right) {
+            if (left == null && right !== null || left !== null && right == null) {
+                return false
+            } else if (left == null && right == null) {
+                return true
+            } else if (left.key !== right.key) {
+                return false
+            }
+            const leftRes = symmetricTree(left.left, right.right)
+            const rightRes = symmetricTree(left.right, right.left)
+
+            return leftRes && rightRes
+        }
+
+        return symmetricTree(node.left, node.right)
+    }
+
+    const isSymmetricII = function (node) {
+        if (!node) {
+            return true
+        } else {
+            const q = []
+            q.push(node.left)
+            q.push(node.right)
+            while (q.length !== 0) {
+                const leftNode = q.shift()
+                const rightNode = q.shift()
+                if (leftNode == null && rightNode == null) {
+                    continue
+                }
+                if (leftNode !== null && rightNode == null || leftNode == null && rightNode !== null) {
+                    return false
+                }
+                q.push(leftNode.left)
+                q.push(rightNode.right)
+                q.push(leftNode.right)
+                q.push(rightNode.left)
+            }
+            return true
+        }
+    }
+
+    const isSymmetricIII = function (root) {
+        //栈
+        if (root === null) {
+            return true;
+        }
+        let stack = [];
+        stack.push(root.left);
+        stack.push(root.right);
+        while (stack.length) {
+            let rightNode = stack.pop()
+            let leftNode = stack.pop()
+            if (leftNode === null && rightNode === null) {
+                continue;
+            }
+            if (leftNode === null || rightNode === null || leftNode.val !== rightNode.val) {
+                return false;
+            }
+            stack.push(leftNode.left)
+            stack.push(rightNode.right)
+            stack.push(leftNode.right)
+            stack.push(rightNode.left)
+        }
+        return true;
+    };
+
+
+    const sumNumbers = function (node, preSum) {
+        /* 0 <= node.key <=9 */
+        if (!node) {
+            return 0
+        }
+        const sum = preSum * 10 + node.key
+        if (!node.left && !node.right) {
+            return sum
+        }
+        let left = sumNumbers(node.left, sum)
+        let right = sumNumbers(node.right, sum)
+        return left + right
+    }
 
     this.zhongxu = function (callback) {
         zhongxuNode(root, callback)
@@ -166,6 +251,15 @@ function BinaryTree() {
     this.max = function () {
         return maxNode(root)
 
+    }
+
+    this.isSymmetric = function () {
+        // return isSymmetric(root)
+        return isSymmetricII(root)
+    }
+
+    this.sumNumbers = function(){
+        return sumNumbers(root,0)
     }
 
 
