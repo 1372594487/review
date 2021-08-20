@@ -216,6 +216,13 @@ function BinaryTree() {
         return left + right
     }
 
+    const hasPathSum = function (node, targetSum) {
+        if (!node) return false;
+        if (!node.left && !node.right && targetSum === node.key) return true;
+        return hasPathSum(node.left, targetSum - node.key) || hasPathSum(node.right, targetSum - node.key)
+    
+    };
+
     this.zhongxu = function (callback) {
         zhongxuNode(root, callback)
     }
