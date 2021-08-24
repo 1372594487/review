@@ -223,6 +223,15 @@ function BinaryTree() {
     
     };
 
+    const buildTree = function (inorder, postorder) {
+        if (!postorder.length) return null
+        let node = new Node(postorder[postorder.length - 1])
+        let index = inorder.indexOf(node.val)
+        node.left = buildTree(inorder.slice(0, index), postorder.slice(0, index))
+        node.right = buildTree(inorder.slice(index + 1), postorder.slice(index, postorder.length - 1))
+        return node
+    };
+
     this.zhongxu = function (callback) {
         zhongxuNode(root, callback)
     }

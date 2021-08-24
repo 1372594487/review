@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var a, b = null
+        console.log(a,typeof a);
+        console.log(b,typeof b);
+        console.log(c,typeof c);
+    </script>
+    <script>
+        let obj = {
+            count:1,
+            sum:function(){
+                return this.count
+            }
+        }
+        var fun = obj.sum
+        console.log(fun(),obj.sum());
+    </script>
+    <script>
+        let c={c:'c'}
+        let d = {d:'d'}
+        !function(parmC,parmD){
+            parmC = parmD
+            parmD.f = 'f'
+        }(c,d)
+        console.log(JSON.stringify(c),JSON.stringify(d));
+    </script>
+    <script>
+        console.log(['1','2','3'].map(parseInt));
+        let sum1 = "11" + 1
+        let sum2 = sum1 - '1'
+//         等同于：['1','2','3'].map((item,index)=>parseInt(item,index))  ===> parseInt('1',0) ，parseInt('2',1)，parseInt('3',2)
+// parseInt 的第二个参数 radix 为 0 时，ECMAScript5 将 string 作为十进制数字的字符串解析
+// parseInt 的第二个参数为 1 时，解析结果为 NaN
+// parseInt 的第二个参数 radix 在 2—36 之间时，如果 string 参数的第一个字符（除空白以外），不属于 radix 指定进制下的字符，解析结果为 NaN 。
+// parseInt("3", 2) 执行时，由于 "3" 不属于二进制字符，解析结果为 NaN。
+
+        console.log(sum1,sum2);
+    </script>
+</body>
+
+</html>

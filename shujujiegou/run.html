@@ -28,6 +28,7 @@
         }
         binaryTree.zhongxu(zhongxuCallback)
         console.log(`zhongxuArr => ${zhongxuArr}`);
+        console.log(`houxu =>${binaryTree.houxu()}`)
         binaryTree.qianxu(qianxuCallback)
         console.log(`qianxuArr => ${qianxuArr}`);
         console.log(`qianxuII =>${binaryTree.qianxuII()}`);
@@ -48,6 +49,57 @@
             }
         }
     </script> -->
+    <script>
+        // function setName(obj){
+        //     obj.name = "asddfgzxc"
+        //     obj = new Object()
+        //     obj.name = "ASDASDASDSA"
+        // }
+        // let person = new Object()
+        // setName(person)
+        // console.log(person.name);
+        // var a =10
+        // a.pro = 10
+        // console.log(a.pro + a);
+        // var s = "hello"
+        // s.pro = 'world'
+        // console.log(s.pro + s);
+
+        // var len = 10
+        // function fn(){
+        //     console.log(this.len);
+        // }
+        // var obj = {
+        //     len:5,
+        //     method:function(fn){
+        //         fn()
+        //         arguments[0]()
+        //     }
+        // }
+        // obj.method(fn)
+
+        // var x =1
+        // if(function f(){
+            
+        // }){
+        //     x += typeof f
+        // }
+        // console.log(x);
+
+        console.log((function(){
+            console.log(1);
+            setTimeout(()=>{
+                console.log(2)
+            },1000)
+            setTimeout(()=>{
+                console.log(3)
+            },0)
+            setTimeout(()=>{
+                console.log(4)
+            },5)
+            console.log(5)
+        })());
+    </script>
 </body>
 
 </html>

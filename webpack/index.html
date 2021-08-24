@@ -1,0 +1,26 @@
+<script>
+    //ES5 不支持ESM
+    // TODO exports缺少对象
+    //污染到全局
+    // (function (list) {
+    //     function require(file) {
+    //         var exports = {};
+    //         (function (exports, code) {
+    //             eval(code)
+    //         })(exports, list[file])
+    //         return exports
+    //     }
+    //     //从入口执行
+    //     require('index.js')
+    // })({
+    //     'index.js': `var add = require('add.js').default
+    //                 console.log(add(1,2));`,
+    //     'add.js': 'exports.default = function (a, b) { return a + b }'
+    // })
+
+    // console.log(exports.default(3, 3))
+    // var add = require('add.js').default
+    // console.log(add(1,2))
+
+</script>
+<script src="./dist/bundle.js"></script>
