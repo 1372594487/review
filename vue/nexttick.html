@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p ref='ref_p'>{{msg}}</p>
+        <input type="button" value="按钮" @click='msgFn'>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                msg: '学习nexttick原理'
+            },
+            methods: {
+                msgFn() {
+                    this.msg = "changeeeeeeeeeeeeeeeee"
+                    console.log('获取数据改变后试图中dom数据', this.$refs['ref_p'].innerHTML);
+                    this.$nextTick(() => {
+                        console.log('$nextTick获取数据改变后试图中dom数据', this.$refs['ref_p'].innerHTML);
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

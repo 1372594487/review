@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>练习</title>
+    
+</head>
+<style>
+    .light{
+        width:200px;
+        height: 200px;
+        border-radius:50%;
+        background:red;
+    }
+    .light2{
+        width:200px;
+        height: 200px;
+        border-radius:50%;
+        background:red; 
+    }
+</style>
+<body>
+    <div class="light"></div>
+    <div class="light2"></div>
+<script>
+    //promise实现  红绿灯
+    var light=document.getElementsByClassName("light")[0];
+    var r=function(){
+        return new Promise(function(resolve,reject){
+            light.style.background="red";
+            setTimeout(resolve,3000);
+        })
+    };
+    var y=function(){
+        return new Promise(function(resolve,reject){
+            light.style.background="yellow"; 
+            setTimeout(resolve,2000);
+        })
+    }
+    var g=function(){
+        return new Promise(function(resolve,reject){
+            light.style.background="green"; 
+            setTimeout(resolve,4000);
+        })
+    }
+    var xun=function(){
+            r().then(function(){
+                return y();
+            }).then(function(){
+                return g();
+            }).then(function(){
+                return xun();
+            });
+    }
+    xun();
+
+    //async/await实现红绿灯
+    const lignt2=document.getElementsByClassName("light2")[0];
+    function changeLightColor(color,duration){
+        return new Promise(function(resolve,reject){
+            lignt2.style.background=color;
+            setTimeout(resolve,duration);
+        })
+    }
+
+    async function xun2 (){
+        await changeLightColor("red",3000);
+        await changeLightColor("yellow",2000);
+        await changeLightColor("green",4000);
+        xun2();
+    }
+    xun2();//执行
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="demo">
+        <h1>vue组件data为什么必须是函数？</h1>
+        <!-- <comp-a></comp-a> -->
+        <comp-b></comp-b>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+
+        // Vue.component('comp-a', {
+        //     template: '<div @click="counter++">{{counter}}</div>',
+        //     data: { counter: 0 }
+        // })
+        Vue.component('comp-b', {
+            template: '<div @click="counter++">{{counter}}</div>',
+            data:()=>{
+                return{
+                    counter:1
+                }
+            }
+        })
+        var app = new Vue({
+            data: {
+                a: 1
+            },
+            created: function () {
+                // `this` points to the vm instance
+                console.log('a is: ' + this.a)
+            },
+            el: '#demo',
+        })
+    </script>
+</body>
+
+</html>

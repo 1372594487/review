@@ -220,16 +220,26 @@ function BinaryTree() {
         if (!node) return false;
         if (!node.left && !node.right && targetSum === node.key) return true;
         return hasPathSum(node.left, targetSum - node.key) || hasPathSum(node.right, targetSum - node.key)
-    
+
     };
 
     const buildTree = function (inorder, postorder) {
         if (!postorder.length) return null
         let node = new Node(postorder[postorder.length - 1])
-        let index = inorder.indexOf(node.val)
+        let index = inorder.indexOf(node.key)
         node.left = buildTree(inorder.slice(0, index), postorder.slice(0, index))
         node.right = buildTree(inorder.slice(index + 1), postorder.slice(index, postorder.length - 1))
         return node
+    };
+
+    var buildTreeII = function (preorder, inorder) {
+        if (!preorder.length) return null
+        let node = new Node(preorder[0])
+        let index = inorder.indexOf(node.key)
+        node.left = buildTree(preorder.slice(1, index + 1), inorder.slice(0, index))
+        node.right = buildTree(preorder.slice(index + 1), inorder.slice(index + 1))
+        return node
+
     };
 
     this.zhongxu = function (callback) {
@@ -243,9 +253,9 @@ function BinaryTree() {
         qianxuNodeII(root, qianxuArr)
         return qianxuArr
     }
-    this.houxu = function () {
+    this.houxu = function (node) {
         let houxuArr = []
-        houxuNode(root, houxuArr)
+        houxuNode(root ? root : node, houxuArr)
         return houxuArr
     }
 
@@ -274,8 +284,15 @@ function BinaryTree() {
         return isSymmetricII(root)
     }
 
-    this.sumNumbers = function(){
-        return sumNumbers(root,0)
+    this.sumNumbers = function () {
+        return sumNumbers(root, 0)
+    }
+
+    this.buildTree = function (inorder, postorder) {
+        return buildTree(inorder, postorder)
+    }
+    this.buildTreeII = function (preOrder, inorder) {
+        return buildTreeII(preOrder, inorder)
     }
 
 

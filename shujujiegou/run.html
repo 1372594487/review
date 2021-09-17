@@ -10,8 +10,7 @@
 
 <body>
     <!-- <button id="btn">点击</button> -->
-    <script src="./BinaryTree.js">
-    </script>
+    <script src="./BinaryTree.js"></script>
     <script>
         var nodes = [8, 3, 10, 1, 6, 14, 4, 7, 13]
         var binaryTree = new BinaryTree();
@@ -27,6 +26,7 @@
             qianxuArr.push(node)
         }
         binaryTree.zhongxu(zhongxuCallback)
+        console.log('binaryTree =>', binaryTree);
         console.log(`zhongxuArr => ${zhongxuArr}`);
         console.log(`houxu =>${binaryTree.houxu()}`)
         binaryTree.qianxu(qianxuCallback)
@@ -80,25 +80,36 @@
 
         // var x =1
         // if(function f(){
-            
+
         // }){
         //     x += typeof f
         // }
         // console.log(x);
 
-        console.log((function(){
-            console.log(1);
-            setTimeout(()=>{
-                console.log(2)
-            },1000)
-            setTimeout(()=>{
-                console.log(3)
-            },0)
-            setTimeout(()=>{
-                console.log(4)
-            },5)
-            console.log(5)
-        })());
+        // console.log((function(){
+        //     console.log(1);
+        //     setTimeout(()=>{
+        //         console.log(2)
+        //     },1000)
+        //     setTimeout(()=>{
+        //         console.log(3)
+        //     },0)
+        //     setTimeout(()=>{
+        //         console.log(4)
+        //     },5)
+        //     console.log(5)
+        // })());
+    </script>
+    <script src="./LinkedList.js"></script>
+    <script>
+        let nodess = [4, 2, 1, 3]
+        let linkedList = new LinkedList()
+        nodess.forEach(key => {
+            linkedList.insert(key)
+        })
+        let ress = linkedList.bianli()
+        console.log('linkedList =>', linkedList);
+        console.log('linkedList.bianli =>',ress);
     </script>
 </body>
 

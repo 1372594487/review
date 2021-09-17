@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="demo">
+        <p v-for="item in items" :key="item">{{item}}</p>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        const app  = new Vue({
+            el:'#demo',
+            data:{items:['a','b','c','d','e']},
+            mounted(){
+                setTimeout(()=>{
+                    //在c前插入f
+                    this.items.splice(2,0,"f")
+                },2000)
+            }
+        })
+    </script>
+</body>
+</html>
