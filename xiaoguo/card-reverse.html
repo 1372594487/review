@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            /* 禁止选择 */
+            user-select: none;
+        }
+
+        body {
+
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(45deg, #40b3ff, #d97aff);
+        }
+
+        .card,
+        .contents,
+        .card-front,
+        .card-back {
+            position: absolute;
+        }
+
+        .card {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 440px;
+            width: 290px;
+            cursor: pointer;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .card-front,
+        .card-back {
+            height: 100%;
+            width: 100%;
+            text-align: center;
+            background: linear-gradient(rgba(61, 14, 14, .5), rgba(0, 0, 0, .5)), url(./imgs/bg1.jpg);
+            box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.05);
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
+            backface-visibility: hidden;
+            transform-style: preserve-3d;
+            transition: transform 1s cubic-bezier(.89, -0.57, .35, 1.51);
+
+        }
+
+        .contents {
+            left: 0;
+            top: 50%;
+            width: 100%;
+            /* 透视距离 */
+            perspective: 100px;
+            transform: translateY(-50%) translateZ(60px);
+        }
+
+        .front p {
+            color: white;
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .front p::after {
+            content: '';
+            display: block;
+            left: 0;
+            right: 0;
+            height: 2px;
+            width: 100px;
+            background: white;
+            margin: 0 auto;
+            margin-top: 10px;
+        }
+
+        .front span {
+            color: white;
+            font-size: 18px;
+        }
+
+        .card-back {
+            transform: rotateY(180deg);
+            background-image: linear-gradient(#5e84a5, #bcd7e0);
+        }
+
+        .back {
+            color: white;
+        }
+
+        .back h2 {
+            font-size: 33px;
+            padding-bottom: 5px;
+        }
+
+        .back span {
+            font-size: 18px;
+        }
+
+        .card:hover>.card-back {
+            transform: rotateY(0deg);
+        }
+
+        .card:hover>.card-front {
+            transform: rotateY(-180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <div class="card-front">
+            <div class="contents front">
+                <p>Seasons</p>
+                <span>Futuristik & Whogaux Remix</span>
+            </div>
+
+
+        </div>
+        <div class="card-back">
+            <div class="contents back">
+                <h2>Rival</h2>
+                <span>Seasons</span>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
