@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <el-table :data="table" border style="width: 100%">
+            <el-table-column prop="date" label="日期" width="180">
+                <template slot-scope="scope">
+                    {{scope.row.id}}
+                </template>
+            </el-table-column>
+            <el-table-column prop="name" label="姓名" width="180">
+            </el-table-column>
+            <el-table-column prop="age" label="地址">
+            </el-table-column>
+            <el-table-column prop="other" label="表单">
+                <el-form :model="scope.row.other">
+                    <el-form-item label="A">
+                        <el-input v-model="scope.row.other.width"></el-input>
+                      </el-form-item>
+                    <el-form-item label="B">
+                        <el-input v-model="scope.row.other.length"></el-input>
+                      </el-form-item>
+                  
+                </el-form>
+            </el-table-column>
+        </el-table>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data() {
+            return {
+                table: [
+                    {
+                        id: '1',
+                        name: 'a',
+                        age: '20',
+                        other: {
+                            length: '1',
+                            width: '2',
+                        }
+
+                    },
+                    {
+                        id: '2',
+                        name: 'b',
+                        age: '21',
+                        other: {
+                            length: '1',
+                            width: '2',
+                        }
+
+                    },
+                    {
+                        id: '1',
+                        name: 'a',
+                        age: '22',
+                        other: {
+                            length: '1',
+                            width: '2',
+                        }
+
+                    }
+                ]
+
+            }
+        },
+        methods: {
+            fnA: () => {
+                console.log('fnA');
+            }
+        },
+
+    })
+</script>
+
+</html>
