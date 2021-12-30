@@ -7,5 +7,5 @@
 // 简单来说，Vue 在修改数据后，视图不会立刻更新，而是等同一事件循环中的所有数据变化完成之后，再统一进行视图更新。
 
 // created、mounted
-// 在 created 和 mounted 阶段，如果需要操作渲染后的试图，也要使用 nextTick 方法。
+// 在 created 和 mounted 阶段，如果需要操作渲染后的视图，也要使用 nextTick 方法。
 // 注意 mounted 不会承诺所有的子组件也都一起被挂载。如果你希望等到整个视图都渲染完毕，可以用 vm.$nextTick 替换掉 mounted
