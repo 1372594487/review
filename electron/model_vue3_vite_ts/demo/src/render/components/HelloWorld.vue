@@ -1,10 +1,24 @@
-<script setup lang="ts">
-import { ref } from "vue";
 
-defineProps<{ msg: string }>();
+<script lang="ts">
+import { ref, getCurrentInstance, onMounted } from "vue";
+export default {
+  name: "HelloWorld",
+  props: { msg: String },
+  setup(props, content) {
+    const count = ref(0);
+    const instance = getCurrentInstance();
+    console.log("instance=>", instance);
+    console.log("props=>", props);
+    console.log("content=>", content);
 
-const count = ref(0);
+    onMounted(() => {});
+    return {
+      count,
+    };
+  },
+};
 </script>
+
 
 <template>
   <h1>{{ msg }}</h1>
