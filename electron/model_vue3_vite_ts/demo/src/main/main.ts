@@ -39,7 +39,7 @@ app.whenReady().then(() => {
         if (BrowserWindow.getAllWindows().length === 0) createWindow()
     })
     // Register a custom protocol and intercept existing protocol requests.
-    protocol.registerFileProtocol('atom', (request: { url: string; }, callback: (arg0: { path: any; }) => void) => {
+    protocol.registerFileProtocol('atom', (request, callback) => {
         const url = request.url.substr(7)
         callback({ path: path.normalize(`${__dirname}/${url}`) })
     })
