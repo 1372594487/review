@@ -20,14 +20,28 @@
         "concurrently": "^7.0.0",
         "electron": "^16.0.7",
         "electron-builder": "^22.14.5",
+        "sass": "^1.49.0",
+        "scss": "^0.2.4",
+        "scss-loader": "0.0.1",
         "typescript": "^4.4.4",
         "vite": "^2.7.2",
+        "vue-router": "^4.0.12",
         "vue-tsc": "^0.29.8"
     },
     "build": {
         "appId": "zywOo.2022_vite_electron_demo",
         "directories": {
             "output": "output"
+        },
+        "productName": "vite_electron_demo",
+        "mac": {
+            "icon": "/src/render/assets/img/jie.jpg"
+        },
+        "win": {
+            "icon": "/src/render/assets/img/jie.jpg"
+        },
+        "linux": {
+            "icon": "/src/render/assets/img/jie.jpg"
         }
     }
 }

@@ -11,8 +11,15 @@ const createWindow = () => {
         height: 600,
         webPreferences: {
             preload: path.join(__dirname, 'preload.ts')
-        }
+        },
+        icon: path.join(__dirname, '../render/assets/img/jie.jpg'),
+        show: false
+
     })
+    mainWindow.once('ready-to-show', () => {
+        mainWindow.show()
+    })
+
     console.log("__dirname", __dirname);
     console.log("print process.env.npm_lifecycle_event", process.env.npm_lifecycle_event);
     // and load the index.html of the app.
