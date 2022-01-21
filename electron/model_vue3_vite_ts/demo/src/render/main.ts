@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import * as utils from './libs/utils'
+import "/src/render/assets/style/font/font.css"
 
 // createApp(App).mount('#app')
 const app = createApp(App);
